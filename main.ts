@@ -20,9 +20,25 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     RingbitCar.brake()
 })
+let sonar2 = 0
+music.playTone(784, music.beat(BeatFraction.Whole))
 basic.showIcon(IconNames.LeftTriangle)
 radio.setGroup(1)
 RingbitCar.init_wheel(AnalogPin.P2, AnalogPin.P1)
 basic.forever(function () {
-	
+    sonar2 = sonar.ping(
+    DigitalPin.P14,
+    DigitalPin.P12,
+    PingUnit.Centimeters
+    )
+    basic.showNumber(sonar2)
+    if (sonar2 <= 30) {
+        RingbitCar.brake()
+        basic.showIcon(IconNames.Sad)
+        music.setVolume(255)
+        music.playTone(139, music.beat(BeatFraction.Whole))
+    } else {
+        basic.showIcon(IconNames.Happy)
+    }
+    basic.pause(50)
 })
