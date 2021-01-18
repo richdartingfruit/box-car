@@ -20,7 +20,6 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     RingbitCar.brake()
 })
-music.playTone(262, music.beat(BeatFraction.Whole))
 basic.showIcon(IconNames.LeftTriangle)
 radio.setGroup(1)
 RingbitCar.init_wheel(AnalogPin.P2, AnalogPin.P1)
