@@ -31,14 +31,13 @@ basic.forever(function () {
     DigitalPin.P12,
     PingUnit.Centimeters
     )
-    basic.showNumber(sonar2)
     if (sonar2 <= 30) {
         RingbitCar.brake()
-        basic.showIcon(IconNames.Sad)
+        basic.showIcon(IconNames.No)
         music.setVolume(255)
         music.playTone(139, music.beat(BeatFraction.Whole))
     } else {
-        basic.showIcon(IconNames.Happy)
+        basic.showIcon(IconNames.Yes)
     }
     basic.pause(50)
 })
