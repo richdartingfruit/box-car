@@ -36,8 +36,6 @@ basic.forever(function () {
         basic.showIcon(IconNames.No)
         music.setVolume(255)
         music.playTone(139, music.beat(BeatFraction.Whole))
-    } else {
-        basic.showIcon(IconNames.Yes)
     }
-    basic.pause(50)
+    basic.pause(100)
 })
