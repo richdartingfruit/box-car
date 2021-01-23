@@ -42,8 +42,9 @@ basic.forever(function () {
         } else {
             basic.showString("Waiting")
         }
+    } else {
+        basic.showIcon(IconNames.Angry)
     }
-    basic.showIcon(IconNames.Angry)
 })
 basic.forever(function () {
     sonar2 = sonar.ping(
