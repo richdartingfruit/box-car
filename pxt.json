@@ -1,12 +1,12 @@
 {
-    "name": "box car",
+    "name": "Mobile box car",
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*",
         "microphone": "*",
         "RingbitCar": "github:tinkertanker/pxt-ringbitcar#v3.0.3",
-        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.5"
+        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.5",
+        "bluetooth": "*"
     },
     "files": [
         "main.blocks",
@@ -19,5 +19,16 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "blocksprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "whitelist": 0,
+                    "security_level": null
+                }
+            }
+        }
+    }
 }
