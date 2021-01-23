@@ -1,29 +1,34 @@
 radio.onReceivedNumber(function (receivedNumber) {
     basic.showNumber(receivedNumber)
     if (receivedNumber == 1) {
-        is_going_forward = true
-        RingbitCar.back()
+        goForward()
     } else if (receivedNumber == 2) {
-        is_going_forward = false
-        RingbitCar.forward()
+        goBackward()
     } else if (receivedNumber == 3) {
-        is_going_forward = false
-        RingbitCar.brake()
-    } else if (receivedNumber == 4) {
-        is_going_forward = false
-        RingbitCar.forward()
+        stop()
     }
 })
+function goBackward () {
+    is_going_forward = false
+    RingbitCar.freestyle(100, 100)
+}
+function goForward () {
+    is_going_forward = true
+    RingbitCar.freestyle(-100, -100)
+}
+function stop () {
+    is_going_forward = false
+    RingbitCar.brake()
+}
 input.onButtonPressed(Button.A, function () {
-    RingbitCar.back()
+    goForward()
 })
 input.onButtonPressed(Button.B, function () {
-    RingbitCar.brake()
+    stop()
 })
 let sonar2 = 0
 let is_going_forward = false
-music.playTone(784, music.beat(BeatFraction.Whole))
-basic.showIcon(IconNames.LeftTriangle)
+basic.showIcon(IconNames.Duck)
 radio.setGroup(1)
 RingbitCar.init_wheel(AnalogPin.P2, AnalogPin.P1)
 basic.forever(function () {
