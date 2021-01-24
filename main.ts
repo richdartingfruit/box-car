@@ -1,3 +1,7 @@
+function turnForwardLeft () {
+    is_going_forward = true
+    RingbitCar.freestyle(-100, 20)
+}
 function goBackward () {
     is_going_forward = false
     RingbitCar.freestyle(100, 100)
@@ -5,6 +9,10 @@ function goBackward () {
 function goForward () {
     is_going_forward = true
     RingbitCar.freestyle(-100, -100)
+}
+function turnForwardRight () {
+    is_going_forward = true
+    RingbitCar.freestyle(20, -100)
 }
 bluetooth.onBluetoothConnected(function () {
     isBluetoothConnected = true
@@ -22,6 +30,14 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     stop()
 })
+function turnBackwordRight () {
+    is_going_forward = false
+    RingbitCar.freestyle(100, -20)
+}
+function turnBackwordLeft () {
+    is_going_forward = false
+    RingbitCar.freestyle(-20, 100)
+}
 let sonar2 = 0
 let is_going_forward = false
 let isBluetoothConnected = false
@@ -39,6 +55,14 @@ basic.forever(function () {
             goBackward()
         } else if (bluetoothCommandString == "B") {
             stop()
+        } else if (bluetoothCommandString == "3") {
+            turnForwardLeft()
+        } else if (bluetoothCommandString == "5") {
+            turnForwardRight()
+        } else if (bluetoothCommandString == "6") {
+            turnBackwordLeft()
+        } else if (bluetoothCommandString == "8") {
+            turnBackwordRight()
         }
     }
 })
