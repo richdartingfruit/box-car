@@ -33,11 +33,11 @@ bluetooth.startUartService()
 basic.forever(function () {
     if (isBluetoothConnected == true) {
         bluetoothCommandString = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
-        if (bluetoothCommandString == "A") {
+        if (bluetoothCommandString == "1") {
             goForward()
-        } else if (bluetoothCommandString == "B") {
+        } else if (bluetoothCommandString == "7") {
             goBackward()
-        } else if (bluetoothCommandString == "0") {
+        } else if (bluetoothCommandString == "B") {
             stop()
         } else {
             basic.showString("Waiting")
