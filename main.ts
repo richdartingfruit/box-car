@@ -39,11 +39,7 @@ basic.forever(function () {
             goBackward()
         } else if (bluetoothCommandString == "B") {
             stop()
-        } else {
-            basic.showString("Waiting")
         }
-    } else {
-        basic.showIcon(IconNames.Angry)
     }
 })
 basic.forever(function () {
@@ -52,13 +48,9 @@ basic.forever(function () {
     DigitalPin.P12,
     PingUnit.Centimeters
     )
-    if (sonar2 <= 30 && is_going_forward == true) {
+    if (sonar2 <= 15 && is_going_forward == true) {
         RingbitCar.brake()
-        basic.showIcon(IconNames.No)
-        music.setVolume(255)
-        music.playTone(139, music.beat(BeatFraction.Whole))
-    } else {
-        basic.showIcon(IconNames.Yes)
+        music.playTone(131, music.beat(BeatFraction.Whole))
     }
     basic.pause(100)
 })
